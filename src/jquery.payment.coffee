@@ -10,8 +10,16 @@ defaultFormat = /(\d{1,4})/g
 
 cards = [
   {
-      type: 'maestro'
-      pattern: /^(5018|5020|5038|6304|6759|676[1-3])/
+      type: 'maestro-int'
+      pattern: /^(5018|5020|5038|6304|676[1-3])/
+      format: defaultFormat
+      length: [12..19]
+      cvcLength: [3]
+      luhn: true
+  }
+  {
+      type: 'maestro-uk'
+      pattern: /^6759/
       format: defaultFormat
       length: [12..19]
       cvcLength: [3]
@@ -71,6 +79,14 @@ cards = [
       format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/
       length: [15]
       cvcLength: [3..4]
+      luhn: true
+  }
+  {
+      type: 'visa-electron'
+      pattern: /^(424519|42496[2-3]|450875|48440[6-8]|48441[1-9]|4844[2-4][0-9]|48445[0-5]|4917[3-5][0-9]|491880)/
+      format: defaultFormat
+      length: [13..16]
+      cvcLength: [3]
       luhn: true
   }
   {
